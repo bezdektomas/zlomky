@@ -1,5 +1,8 @@
 package zlomky;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -13,6 +16,16 @@ public class Main {
         System.out.println(z1 + " + " + z2 + " = " + z1.secti(z2));
         
         System.out.println(z1 + " + " + z2 + " = " + Util.sectiZlomky(z3, z4));
+
+
+        List<Zlomek> z = new LinkedList<>();
+        int n = 10;
+
+        for (int i = 0; i < n; i++) {
+            z.add(new Zlomek(i, i+1));
+        }
+
+        System.out.println("Kolekce zlomku:" + z);
 
     }
 }

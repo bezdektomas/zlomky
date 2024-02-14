@@ -16,6 +16,20 @@ public class Zlomek {
         this.jmenovatel = 1;
     }
 
+    public Zlomek(String s) {
+        String [] r = s.split("/");
+        if (r.length == 1) {
+            this.jmenovatel = 1;
+        } else {
+            this.jmenovatel = Integer.parseInt(r[1]);
+        }
+
+        this.citatel = Integer.parseInt(r[0]);
+
+        vyresZnamenko();
+        zkrat();
+    }
+
     @Override
     public String toString() {
         if (jmenovatel == 1) {
@@ -54,5 +68,16 @@ public class Zlomek {
         int jmen = this.jmenovatel*other.jmenovatel;
 
         return new Zlomek(cit, jmen);
+    }
+
+    public Zlomek vydel(Zlomek other) throws ArithmeticException {
+        int cit = this.citatel*other.jmenovatel;
+        int jmen = this.jmenovatel*other.jmenovatel;
+
+        if (jmen == 0) {
+            throw new ArithmeticException("Deleni nulou");
+        } else {
+            return new Zlomek(cit,jmen);
+        }
     }
 } 
